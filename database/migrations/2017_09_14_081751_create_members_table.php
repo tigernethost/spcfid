@@ -20,8 +20,8 @@ class CreateMembersTable extends Migration
             $table->string('lastname');
             $table->integer('department_id');
             $table->boolean('status');
-            $table->text('image');
-            $table->text('signature');
+            $table->text('image')->nullable();
+            $table->text('signature')->nullable();
             $table->timestamps();
         });
     }
