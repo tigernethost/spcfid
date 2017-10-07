@@ -37,7 +37,7 @@ class Member extends Model
 
     public function department()
     {
-        return $this->hasOne('App\Models\Department','department_id','id');
+        return $this->hasOne('App\Models\Department','id','department_id');
     }
 
     /*
@@ -65,6 +65,8 @@ class Member extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+
 
     public function setImageAttribute($value)
     {

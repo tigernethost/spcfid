@@ -8,7 +8,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
+        <link rel="stylesheet" href="/css/bootstrap.css"/>
 
         <!-- Styles -->
         <style>
@@ -46,7 +47,12 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 40px;
+
+            }
+
+            .title > b {
+                font-weight: bold;
             }
 
             .links > a {
@@ -65,22 +71,70 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            
+        {{-- {{ $data["info"] }} --}}
+        <div class="container-fluid">
+            <div class="row full-height flex-center">
+                <div class="col-md-6 text-center">
+                            <div class="logo">
+                                <img src="/uploads/spcf_logo.png" class="img img-circle" />
+                            </div>
+                            <div class="title">
+                                <b>RFID</b>System
+                            </div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    SPCF<b>RFID</b>
+                            <form action="/" method="POST">
+                                {{ csrf_field() }}
+
+                                <input type="password" class="form-control" name="rfid" required autofocus/>
+                                {{-- <input type="submit" value="Enter" class="btn btn-primary" /> --}}
+                            </form>
+                       
                 </div>
 
-                <!-- <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> -->
+                {{-- Information --}}
+                <div class="col-md-6">
+                    <div class="row">
+                    @foreach($member as $row)
+                        <div class="col-md-12 col-md-offset-1">
+                            <center>
+                            <div class="title" style="font-size: 20px;">
+                                <b>Last Entry: October 7, 2017 3:00:00 PM</b>
+                            </div>
+                            <div class="card" style="width: 20rem;">
+                              <img class="card-img-top" src="/uploads/00001.jpg" alt="Card image cap">
+                              <div class="card-block">
+                                <h4 class="card-title text-center"><b>{{ $row->firstname . ' ' . $row->lastname }}</b></h4>
+                                <p class="card-text">
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td>Year</td>
+                                                <td><b>{{ $row->year }}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Section</td>
+                                                <td>{{ $row->section }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Department</td>
+                                                <td>{{ $row->department->description }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </p>
+                              </div>
+                            </div>
+                            </center> 
+                        </div>
+                     @endforeach   
+                    </div>
+                           
+                </div> 
             </div>
         </div>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script>
+            
+        </script>
     </body>
 </html>

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
+// Route::post('/', 'WelcomeController@validateRfid');
 
 
 Route::group([
@@ -24,4 +24,6 @@ Route::group([
     // your CRUD resources and other admin routes here
     CRUD::resource('member', 'MemberCrudController');
     CRUD::resource('department', 'DepartmentCrudController');
+    Route::get('jsonreturn', "MemberCrudController@jsonreturn");
 });
+
