@@ -13,6 +13,7 @@
 
 Route::post('/', 'WelcomeController@index');
 Route::get('/', 'WelcomeController@index');
+Route::get('/updateNow', 'WelcomeController@updateDB');
 // Route::post('/', 'WelcomeController@validateRfid');
 
 
