@@ -91,7 +91,7 @@ class WelcomeController extends Controller
     public function callEntranceOn($turnstile){
     	// $turnstile = 1;
 
-    	$requestURL = "http://192.168.0.109/".$turnstile."/entrance/on";
+    	$requestURL = "http://192.168.1.18/".$turnstile."/entrance/on";
     	
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $requestURL);
@@ -109,7 +109,7 @@ class WelcomeController extends Controller
     public function callExitOn($turnstile){
     	// $turnstile = 1;
 
-    	$requestURL = "http://192.168.0.109/".$turnstile."/exit/on";
+    	$requestURL = "http://192.168.1.18/".$turnstile."/exit/on";
     	
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $requestURL);
