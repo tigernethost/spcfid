@@ -85,7 +85,7 @@
                             <form action="/" method="POST">
                                 {{ csrf_field() }}
 
-                                <input type="password" class="form-control" name="rfid" required autofocus/>
+                                <input type="password" class="form-control" name="rfid" required autofocus maxlength="10" />
                                 {{-- <input type="submit" value="Enter" class="btn btn-primary" /> --}}
                             </form>
                        
@@ -101,7 +101,8 @@
                                 <b>Last Entry: October 7, 2017 3:00:00 PM</b>
                             </div>
                             <div class="card" style="width: 20rem;">
-                              <img class="card-img-top" src="/uploads/00001.jpg" alt="Card image cap">
+                              <img class="card-img-top" src="/uploads/{{ $row->image }}" alt="Card image cap">
+                              <p>{{ $row->image }}</p>
                               <div class="card-block">
                                 <h4 class="card-title text-center"><b>{{ $row->firstname . ' ' . $row->lastname }}</b></h4>
                                 <p class="card-text">

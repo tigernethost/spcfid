@@ -14,8 +14,8 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('rfid')->unique();
-            $table->integer('student_id');
+            $table->bigInteger('rfid')->unique();
+            $table->bigInteger('student_id')->unique()->nullable();
             $table->string('firstname');
             $table->string('lastname');
             $table->integer('department_id');

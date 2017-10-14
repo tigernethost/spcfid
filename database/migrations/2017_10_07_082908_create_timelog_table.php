@@ -14,7 +14,7 @@ class CreateTimelogTable extends Migration
     {
         Schema::create('timelogs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('member_id');
+            $table->bigInteger('member_id');
             $table->time('timein');
             $table->time('timeout')->nullable();
             $table->boolean('is_logged_in')->nullable();
