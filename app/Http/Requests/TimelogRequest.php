@@ -25,7 +25,7 @@ class TimelogRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'rfid' => 'required|min:5|max:20'
         ];
     }
 

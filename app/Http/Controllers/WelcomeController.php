@@ -16,21 +16,59 @@ class WelcomeController extends Controller
     		// dd($request->input());
     		$rfid = $request->input('rfid');
     		
-    	
+    	   
 	    	$member = Member::where('rfid','=',$rfid)->get();
+          
 
-	    	$data["member"] = $member;
+            if($member->count() > 0) {
 
-	    
-	    	$this->log($data["member"]);
+                $member_id = $member[0]->student_id;
 
-	    	return view('welcome',$data);
+                $lastentry = Timelog::where('member_id','=',$member_id)->first();
+
+
+                $data["member"] = $member;
+                if($lastentry){
+                    $data["lastentry"] = $lastentry->updated_at;
+                }
+                else {
+                    $data["lastentry"] = [];
+                }
+                
+
+
+                $data["message"] = [
+                    "success"=> true, 
+                    "message"=>"The ID is not recognised. Please contact the system administrator."
+                ];
+                
+                $this->log($data["member"]);
+
+                return view('welcome',$data);
+            }
+            else {
+                $member = Member::where('rfid','=',00001)->get();
+
+                $data["member"] = $member;
+                $data["lastentry"] = [];
+                $data["message"] = [
+                    "success"=> true, 
+                    "message"=>"The ID is not recognised. Please contact the system administrator."
+                ];
+
+                return view('welcome',$data);
+            }
+
+	    	
+
+
 
 	    }else {
-
+            // dd();
 	    	$member = Member::where('rfid','=',00001)->get();
 
 	    	$data["member"] = $member;
+            $data["lastentry"] = [];
 
 	    	return view('welcome',$data);
 	    }
@@ -88,7 +126,7 @@ class WelcomeController extends Controller
     public function callEntranceOn($turnstile){
     	// $turnstile = 1;
 
-    	$requestURL = "http://192.168.1.11/".$turnstile."/entrance/on";
+    	$requestURL = "http://124.6.156.11/".$turnstile."/entrance/on";
     	
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $requestURL);
@@ -106,7 +144,7 @@ class WelcomeController extends Controller
     public function callExitOn($turnstile){
     	// $turnstile = 1;
 
-    	$requestURL = "http://192.168.1.11/".$turnstile."/exit/on";
+    	$requestURL = "http://124.6.156.11/".$turnstile."/exit/on";
     	
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $requestURL);

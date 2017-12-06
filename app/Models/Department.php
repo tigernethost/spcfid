@@ -19,7 +19,7 @@ class Department extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['description','starttime','endtime'];
+    protected $fillable = ['description','starttime','endtime','inout'];
     // protected $hidden = [];
     // protected $dates = [];
 

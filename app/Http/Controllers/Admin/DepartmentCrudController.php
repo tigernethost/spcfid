@@ -57,6 +57,17 @@ class DepartmentCrudController extends CrudController
                 ]
             ]
             );
+
+        $this->crud->addField(
+            [   // DateTime
+                'name' => 'inout',
+                'label' => 'In / Out',
+                'type' => 'select2_from_array',
+                'options' => ['In' => 'In', 'Out' => 'Out'],
+                
+            ]
+            
+            );
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');

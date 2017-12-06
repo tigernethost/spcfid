@@ -75,6 +75,10 @@
         <div class="container-fluid">
             <div class="row full-height flex-center">
                 <div class="col-md-6 text-center">
+                    {
+                        {{-- @foreach($message as $msg)
+                            {{ $msg->message }}
+                        @endforeach --}}
                             <div class="logo">
                                 <img src="/uploads/spcf_logo.png" class="img img-circle" />
                             </div>
@@ -93,16 +97,20 @@
 
                 {{-- Information --}}
                 <div class="col-md-6">
+                   
                     <div class="row">
-                    @foreach($member as $row)
+                   
                         <div class="col-md-12 col-md-offset-1">
                             <center>
                             <div class="title" style="font-size: 20px;">
-                                <b>Last Entry: October 7, 2017 3:00:00 PM</b>
+                                
+                                {{-- <b>Last Entry: {{ $lastentry }}</b> --}}
+                                
                             </div>
+                            @foreach($member as $row)
                             <div class="card" style="width: 20rem;">
-                              <img class="card-img-top" src="/uploads/{{ $row->image }}" alt="Card image cap">
-                              <p>{{ $row->image }}</p>
+                              <img class="card-img-top" src="{{ $row->image }}" alt="{{ $row->image}}">
+                              {{-- <p>{{ $row->image }}</p> --}}
                               <div class="card-block">
                                 <h4 class="card-title text-center"><b>{{ $row->firstname . ' ' . $row->lastname }}</b></h4>
                                 <p class="card-text">
@@ -125,9 +133,10 @@
                                 </p>
                               </div>
                             </div>
+                            @endforeach  
                             </center> 
                         </div>
-                     @endforeach   
+                      
                     </div>
                            
                 </div> 
