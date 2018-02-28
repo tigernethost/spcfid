@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Timelog extends Model
+class Login extends Model
 {
     use CrudTrait;
 
-     /*
+    /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    //protected $table = 'timelogs';
-    //protected $primaryKey = 'id';
+    protected $table = 'logins';
+    // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['rfid','timein','timeout','turnstile','is_logged_in'];
+    protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,10 +34,6 @@ class Timelog extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    public function members(){
-        return $this->hasMany('App\Models\Member','rfid','rfid');
-    }
 
     /*
     |--------------------------------------------------------------------------

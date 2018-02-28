@@ -1,4 +1,5 @@
 
+
 window._ = require('lodash');
 
 /**
@@ -50,4 +51,20 @@ if (token) {
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
+// });
+
+import Echo from "laravel-echo"
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: '16d256defc100c87eb6b',
+    cluster: 'ap1',
+    encrypted: true
+});
+
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: window.location.hostname + ':6001'
 // });

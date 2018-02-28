@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimelogTable extends Migration
+class CreateLoginsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateTimelogTable extends Migration
      */
     public function up()
     {
-        Schema::create('timelogs', function (Blueprint $table) {
+        Schema::create('logins', function (Blueprint $table) {
             $table->increments('id');
             $table->string('rfid');
-            $table->time('timein');
-            $table->time('timeout')->nullable();
-            $table->boolean('is_logged_in')->nullable();
+            $table->string('timein');
+            $table->string('timeout')->nullable();
+            $table->string('turnstile')->nullable();
+            $table->boolean('is_login')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateTimelogTable extends Migration
      */
     public function down()
     {
-        Schema::drop('timelogs');
+        Schema::drop('logins');
     }
 }

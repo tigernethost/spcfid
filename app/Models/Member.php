@@ -40,6 +40,10 @@ class Member extends Model
         return $this->hasOne('App\Models\Department','id','department_id');
     }
 
+    public function timelog(){
+        return $this->belongsTo('App\Models\Timelog', 'rfid','rfid');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

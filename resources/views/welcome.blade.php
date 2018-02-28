@@ -71,6 +71,7 @@
         </style>
     </head>
     <body>
+        
         {{-- {{ $data["info"] }} --}}
         <div class="container-fluid">
             <div class="row full-height flex-center">

@@ -14,12 +14,13 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('rfid')->unique();
-            $table->bigInteger('student_id')->unique()->nullable();
+            $table->bigInteger('rfid');
+            $table->string('member_id')->nullable();
             $table->string('firstname');
+            $table->string('middlename');
             $table->string('lastname');
             $table->integer('department_id');
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
             $table->text('image')->nullable();
             $table->text('signature')->nullable();
             $table->timestamps();
