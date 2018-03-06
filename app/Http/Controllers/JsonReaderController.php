@@ -18,8 +18,7 @@ class JsonReaderController extends Controller
 
     	foreach($member as $row){
     		$raw = [
-    			$row->rfid => 'is_in',
-    			
+    			'rfid' => $row->rfid    
     		];
     		array_push($arrayMember, $raw);
     	}
