@@ -19,8 +19,9 @@ class Member extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['rfid','student_id','firstname','lastname','department_id','status','image','signature'];
+    protected $fillable = ['rfid','student_id','firstname','middlename','lastname','department_id','status','image','signature'];
     // protected $hidden = [];
+    public $appends = ['image'];
     // protected $dates = [];
 
     /*
@@ -99,6 +100,16 @@ class Member extends Model
             // 3. Save the path to the database
             $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
         }
+    }
+
+    public function getImageAttribute()
+    {
+        return "storage/".$this->signature;
+    }
+
+    public function setRfidAttribute($value){
+        $this->attributes['rfid'] = ltrim($value, '0');
+         
     }
 
     public function setSignatureAttribute($value)

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use App\Models\Member;
+use Carbon\Carbon;
+
 
 class Timelog extends Model
 {
@@ -37,6 +40,32 @@ class Timelog extends Model
 
     public function members(){
         return $this->hasMany('App\Models\Member','rfid','rfid');
+    }
+
+
+    public function getFirstnameAttribute(){
+        $member = Member::where('rfid',$this->rfid)->first();
+        // dd($member);
+        return $member['firstname'];
+    }
+
+    public function getLastnameAttribute(){
+        $member = Member::where('rfid',$this->rfid)->first();
+        // dd($member);
+        return $member['lastname'];
+    }
+
+    public function getDateAttribute(){
+        return $this->created_at->format('m-d-Y');
+    }
+
+    public function getCreatedAttribute(){
+        return $this->created_at->format('m-d-Y');
+    }
+
+    public function getDepartmentIdAttribute(){
+        $member = Member::where('rfid',$this->rfid)->first();
+        return $member['department_id'];
     }
 
     /*

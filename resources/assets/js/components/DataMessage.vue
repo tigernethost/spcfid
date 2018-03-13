@@ -7,7 +7,7 @@
 
                     <div class="panel-body">
                         <center>
-                            <img :src="info.image" class="img img-rounded"/>
+                            <img v-show="info.image" class="img img-rounded" :src="info.image"/>
                         </center>
                         <p>Department: {{ info.department_id }}</p> 
                         <!-- <p>{{ message }}</p> -->
@@ -37,6 +37,8 @@
             .listen('TriggerEvent', (e) => {
                 this.infos = e
             })
+
+            console.log(e);
         }
     }
     

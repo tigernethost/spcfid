@@ -16,6 +16,7 @@ Route::post('/', 'WelcomeController@index');
 Route::get('/', 'WelcomeController@index');
 Route::get('/updateNow', 'WelcomeController@updateDB');
 
+
 Route::get('chat', function(){
 	return view('chat');
 });
@@ -46,6 +47,7 @@ Route::group([
     'middleware' => ['admin'],
     'namespace' => 'Admin'
 ], function() {
+	Route::get('ajax-department-options', 'TimelogCrudController@departmentOptions');
     // your CRUD resources and other admin routes here
     CRUD::resource('member', 'MemberCrudController');
     CRUD::resource('department', 'DepartmentCrudController');

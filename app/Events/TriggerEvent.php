@@ -67,7 +67,7 @@ class TriggerEvent implements ShouldBroadcast
                     "lastname" => $member->lastname,
                     "department_id" => 1,
                     "status" => null,
-                    "image" => "http://via.placeholder.com/250x250",
+                    "image" => $member->image,
                     "signature" => "",
                     "is_logged_in" => $is_logged_in,
                 ];
@@ -87,7 +87,7 @@ class TriggerEvent implements ShouldBroadcast
                     "lastname" => $row->members[0]->lastname,
                     "department_id" => 1,
                     "status" => null,
-                    "image" => "http://via.placeholder.com/250x250",
+                    "image" => $member->image,
                     "signature" => "",
                     // "is_logged_in" => $members->timelog->is_logged_in,
                 ];

@@ -12,7 +12,7 @@ class JsonReaderController extends Controller
     //
 
     public function make_json(){
-    	$member = Member::get();
+    	$member = Member::all();
 
     	$arrayMember = [];
 
