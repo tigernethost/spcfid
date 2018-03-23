@@ -12,8 +12,8 @@ use App\Events\TriggerEvent;
 |
 */
 
-Route::post('/', 'WelcomeController@index');
 Route::get('/', 'WelcomeController@index');
+Route::post('/', 'WelcomeController@index');
 Route::get('/updateNow', 'WelcomeController@updateDB');
 
 
@@ -54,4 +54,5 @@ Route::group([
     
     CRUD::resource('timelog', 'TimelogCrudController');
 });
+	Route::post('visitor', 'VisitorController@storeVisitor');
 
