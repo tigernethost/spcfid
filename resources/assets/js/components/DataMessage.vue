@@ -9,6 +9,7 @@
                     <div class="panel-body">
                         <center>
                             <img v-bind:src="info.image" width="150" />
+
                         </center>
                         <p>Department: {{ info.department_id }}</p> 
                     </div>

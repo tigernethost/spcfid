@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Support\Facades\Redis;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\MemberRequest as StoreRequest;
@@ -131,23 +132,27 @@ class MemberCrudController extends CrudController
                 'aspect_ratio' => 1 // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
             ]
             );
-        $this->crud->addField(
-        [ // image
-            'label' => "Signature",
-            'name' => "signature",
-            'type' => 'image',
-            'upload' => true,
-            'crop' => true, // set to true to allow cropping, false to disable
-            'aspect_ratio' => 0 // ommit or set to 0 to allow any aspect ratio
-            // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
-        ]
-        );
+        // $this->crud->addField(
+        // [ // image
+        //     'label' => "Signature",
+        //     'name' => "signature",
+        //     'type' => 'image',
+        //     'upload' => true,
+        //     'crop' => true, // set to true to allow cropping, false to disable
+        //     'aspect_ratio' => 0 // ommit or set to 0 to allow any aspect ratio
+        //     // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
+        // ]
+        // );
     }
 
     public function store(StoreRequest $request)
     {
+
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
+
+
+        Redis::set(ltrim($request->rfid, '0'),'is_out');
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
@@ -157,12 +162,10 @@ class MemberCrudController extends CrudController
     {
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
+        Redis::set(ltrim($request->rfid, '0'),'is_out');
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
-
-    
-
     
 }

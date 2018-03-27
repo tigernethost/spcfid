@@ -12,66 +12,7 @@ class WelcomeController extends Controller
 
     public function index(Request $request){
 
-    	if($request->input()){
-    		// dd($request->input());
-    		$rfid = $request->input('rfid');
-    		
-    	   
-	    	$member = Member::where('rfid','=',$rfid)->get();
-          
-
-            if($member->count() > 0) {
-
-                $member_id = $member[0]->student_id;
-
-                $lastentry = Timelog::where('member_id','=',$member_id)->first();
-
-
-                $data["member"] = $member;
-                if($lastentry){
-                    $data["lastentry"] = $lastentry->updated_at;
-                }
-                else {
-                    $data["lastentry"] = [];
-                }
-                
-
-
-                $data["message"] = [
-                    "success"=> true, 
-                    "message"=>"The ID is not recognised. Please contact the system administrator."
-                ];
-                
-                $this->log($data["member"]);
-
-                return view('welcome',$data);
-            }
-            else {
-                $member = Member::where('rfid','=',00001)->get();
-
-                $data["member"] = $member;
-                $data["lastentry"] = [];
-                $data["message"] = [
-                    "success"=> true, 
-                    "message"=>"The ID is not recognised. Please contact the system administrator."
-                ];
-
-                return view('welcome',$data);
-            }
-
-	    	
-
-
-
-	    }else {
-            // dd();
-	    	$member = Member::where('rfid','=',00001)->get();
-
-	    	$data["member"] = $member;
-            $data["lastentry"] = [];
-
-	    	return view('welcome',$data);
-	    }
+        return view('welcome');
 
     }
 

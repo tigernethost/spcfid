@@ -12,14 +12,13 @@ class JsonReaderController extends Controller
     //
 
     public function make_json(){
-    	$member = Member::get();
+    	$member = Member::all();
 
     	$arrayMember = [];
 
     	foreach($member as $row){
     		$raw = [
-    			$row->rfid => 'is_in',
-    			
+    			'rfid' => $row->rfid    
     		];
     		array_push($arrayMember, $raw);
     	}

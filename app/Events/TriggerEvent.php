@@ -87,7 +87,7 @@ class TriggerEvent implements ShouldBroadcast
                     "lastname" => $row->members[0]->lastname,
                     "department_id" => 1,
                     "status" => null,
-                    "image" => "http://via.placeholder.com/250x250",
+                    "image" => $row->members[0]->image,
                     "signature" => "",
                     // "is_logged_in" => $members->timelog->is_logged_in,
                 ];
@@ -95,19 +95,13 @@ class TriggerEvent implements ShouldBroadcast
             }
  
         if($this->in == "1") {
-            // dd("Helo timein");
-           
             $this->login($this->rfid);    
         }
         
         if($this->in == "0") {
-// dd($this->in);
             $this->logout($this->rfid);    
         }
         
-        
-
-        // dd($memberFixed);
         return $memberFixed;
     }
 

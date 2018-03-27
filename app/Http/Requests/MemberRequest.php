@@ -25,9 +25,10 @@ class MemberRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'rfid' => 'required|min:6|max:20',
+            'rfid' => 'required|min:6|max:20|unique:members',
             'student_id' => 'min:6|max:20',
             'firstname' => 'min:2|max:255',
+            'middlename' => 'min:2|max:255',
             'lastname' => 'min:2|max:255',
 
         ];
