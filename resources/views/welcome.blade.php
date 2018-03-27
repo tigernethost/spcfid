@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>SPCF RFID</title>
+        <title>SPCF | RFID</title>
 
         <link rel="stylesheet" href="/css/bootstrap.css"/>
 
@@ -38,7 +38,7 @@
         <h2 class="text-center">Visitors Access</h2>
 
         <div class="row">
-            <div class="col-sm-6 mt-5" style="margin: auto;">
+            <div class="col-sm-6 mt-3" style="margin: auto;">
                 <div id="cam-wrapper">
                     <div id="my_camera"></div>
                     <form>
@@ -69,16 +69,21 @@
                         </li>
                         <li class="list-group-item">
                                 <label for="dept" class=" col-form-label"><h3 class="mb-0"><strong>Department to visit: </strong></h3></label>
-                                <select name="department_id" id="" class="form-control form-control-lg" required>
-                                    <option value="" selected disabled>Select a department</option>
-                                    <option value="1">CCIS</option>
-                                    <option value="2">COB</option>
-                                    <option value="3">CASS</option>
+                               
+                                <select name="department_id" class="form-control form-control-lg" required>
+                                     <option value="" selected disabled>Select a department</option>
+                                     
+                                     @foreach($department as $row)
+                                       
+                                        <option value="{{$row->id}}">{{$row->description}}</option>
+                                       
+                                        @endforeach
                                 </select>
+                                
                                 <!-- <input type="text" name="dept"  class="form-control-plaintext" id="dept" value="CCIS" disabled> -->
                         </li>
                         <li class="list-group-item">
-                                <label for="rfid" class=" col-form-label"><h3 class="mb-0"><strong>RFID: </strong></h3></label>
+                                <label for="rfid" class=" col-form-label"><h3 class="mb-0"><strong>Tap blank ID here</strong></h3></label>
                                 <input type="text" name="rfid"  class="form-control" placeholder="Enter your RFID" id="rfid" value="" required>
                         </li>
                         <button class="btn btn-lg btn-primary" type="submit" style="display:none;">Submit</button>
@@ -96,16 +101,21 @@
 <script language="JavaScript">
     Webcam.set({
         // live preview size
-                width: 520,
-                height: 440,
+                width: 500,
+                height: 600,
                 
                 // device capture size
-                dest_width: 520,
-                dest_height: 420,
+                dest_width: 500,
+                dest_height: 500,
+
+                crop_width: 500,
+                crop_height: 500,
 
                 // format and quality
                 image_format: 'jpeg',
                 jpeg_quality: 90,
+
+                // force_flash: true,
                 
                 // flip horizontal (mirror mode)
                 // flip_horiz: true

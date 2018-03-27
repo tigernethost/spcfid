@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Timelog;
+use App\Models\Department;
 
 class WelcomeController extends Controller
 {
@@ -12,7 +13,9 @@ class WelcomeController extends Controller
 
     public function index(Request $request){
 
-        return view('welcome');
+        $department = Department::all();
+
+        return view('welcome')->withDepartment($department);
 
     }
 
