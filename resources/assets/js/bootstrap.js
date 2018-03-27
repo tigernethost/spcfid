@@ -55,16 +55,18 @@ if (token) {
 
 import Echo from "laravel-echo"
 
-window.Pusher = require('pusher-js');
-
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: '16d256defc100c87eb6b',
-    cluster: 'ap1',
-    encrypted: true
-});
+// window.Pusher = require('pusher-js');
 
 // window.Echo = new Echo({
-//     broadcaster: 'socket.io',
-//     host: window.location.hostname + ':6001'
+//     broadcaster: 'pusher',
+//     key: '16d256defc100c87eb6b',
+//     cluster: 'ap1',
+//     encrypted: true
 // });
+
+window.io = require('socket.io-client');
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+});

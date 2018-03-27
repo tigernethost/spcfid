@@ -11,6 +11,7 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\Models\Timelog;
 use App\Models\Member;
+use Illuminate\Http\Request;
 
 class TriggerEvent implements ShouldBroadcast
 {
@@ -45,19 +46,18 @@ class TriggerEvent implements ShouldBroadcast
 
     public function broadcastWith()
     {
-        
 
         $member = Member::where('rfid', $this->rfid)->orderBy('id','desc')->first();
 
-        // dd($member->timelog);
+        // dd($member);
         $timelog = Timelog::with('members')->take(5)->where('rfid','!=',$this->rfid)->where('is_logged_in',1)->get();
 
-        // dd($member);
+        
         $is_logged_in = count($member->timelog) > 0 ? $member->timelog->is_logged_in : 0;
-
+       
         $memberFixed = [];
         if(count($member) > 0){
-            
+             
                 $arraymember = [
                     "id" => $member->id,
                     "rfid" => $member->rfid,
@@ -67,7 +67,7 @@ class TriggerEvent implements ShouldBroadcast
                     "lastname" => $member->lastname,
                     "department_id" => 1,
                     "status" => null,
-                    "image" => "http://via.placeholder.com/250x250",
+                    "image" => $member->image,
                     "signature" => "",
                     "is_logged_in" => $is_logged_in,
                 ];
@@ -93,14 +93,15 @@ class TriggerEvent implements ShouldBroadcast
                 ];
                 array_push($memberFixed, $arraymembers);
             }
-
+ 
         if($this->in == "1") {
             // dd("Helo timein");
+           
             $this->login($this->rfid);    
         }
         
         if($this->in == "0") {
-
+// dd($this->in);
             $this->logout($this->rfid);    
         }
         
