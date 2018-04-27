@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('data-message', require('./components/DataMessage.vue'));  
+Vue.component('counter-message', require('./components/CounterMessage.vue'));  
 
 const app = new Vue({
     el: '#app'

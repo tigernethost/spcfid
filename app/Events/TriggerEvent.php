@@ -50,7 +50,7 @@ class TriggerEvent implements ShouldBroadcast
         $member = Member::where('rfid', $this->rfid)->orderBy('id','desc')->first();
 
         // dd($member);
-        $timelog = Timelog::with('members')->take(5)->where('rfid','!=',$this->rfid)->where('is_logged_in',1)->get();
+        $timelog = Timelog::with('members')->take(5)->where('rfid','!=',$this->rfid)->where('is_logged_in',1)->orderBy('id', 'desc')->get();
 
         
         $is_logged_in = count($member->timelog) > 0 ? $member->timelog->is_logged_in : 0;

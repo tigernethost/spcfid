@@ -1,5 +1,6 @@
 <?php
 use App\Events\TriggerEvent;
+use App\Events\CounterEvent;
 // use App\Illuminate\Http
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,13 @@ Route::get('alertbox', function () {
 	return view('chat');
 });
 
+Route::get('counterbox', function () {
+	return view('counter');
+});
+Route::get('counter-client', function () {
+	return view('counter-client');
+});
+
 Route::get('jsonmember', 'JsonReaderController@make_json');
 
 Route::get('trigger', function(){
@@ -34,6 +42,17 @@ Route::get('trigger', function(){
 
 	if($rfid){
 		event(new TriggerEvent($rfid,$turnstile,$in));
+	}
+	
+});
+
+Route::get('counter-event', function(){
+
+	$counter = request("counter");
+
+	if($counter){
+		event(new CounterEvent($counter));
+
 	}
 	
 });
@@ -51,8 +70,10 @@ Route::group([
     // your CRUD resources and other admin routes here
     CRUD::resource('member', 'MemberCrudController');
     CRUD::resource('department', 'DepartmentCrudController');
+    CRUD::resource('counter', 'CounterCrudController');
     
     CRUD::resource('timelog', 'TimelogCrudController');
+    CRUD::resource('counter_log', 'Counter_logCrudController');
 });
 	Route::post('visitor', 'VisitorController@storeVisitor');
 
