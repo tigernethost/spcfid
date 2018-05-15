@@ -24,7 +24,8 @@
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/member') }}"><i class="fa fa-cog"></i> <span>RFID Register</span></a></li>
           
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/timelog') }}"><i class="fa fa-cog"></i> <span>Time Logs</span></a></li>
-
+          
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/visitor') }}"><i class="fa fa-cog"></i> <span>Visitors</span></a></li>
 
          {{--  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li> --}}
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/log') }}"><i class="fa fa-terminal"></i> <span>Logs</span></a></li>

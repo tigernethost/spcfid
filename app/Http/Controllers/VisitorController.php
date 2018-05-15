@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Member;
+use App\Models\Visitor;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,12 +16,11 @@ class VisitorController extends Controller
         $image = $request->image_file;
         $image = 'data:image/jpeg;base64,' . $image;
        
-        $check = Member::where('rfid',$request->rfid)->get();
+        $check = Visitor::where('rfid',$request->rfid)->get();
         if(count($check) < 1){
-            $member = new Member;
+            $member = new Visitor;
 
             $member->rfid = $request->rfid;
-            $member->member_id = 'Visitor';
             $member->firstname = $request->firstname;
             $member->lastname = $request->lastname;
             $member->department_id = $request->department_id;
