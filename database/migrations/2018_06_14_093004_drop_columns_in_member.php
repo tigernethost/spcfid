@@ -18,7 +18,6 @@ class DropColumnsInMember extends Migration
             $table->dropColumn('firstname');
             $table->dropColumn('middlename');
             $table->dropColumn('lastname');
-            $table->dropColumn('lastname');
             $table->dropColumn('image');
             $table->dropColumn('signature');
             $table->dropColumn('department_id');
