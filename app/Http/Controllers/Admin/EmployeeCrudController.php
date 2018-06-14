@@ -49,6 +49,18 @@ class EmployeeCrudController extends CrudController
             ]
         );
 
+        $this->crud->addColumn(
+            [
+               // 1-n relationship
+               'label' => "Department", // Table column heading
+               'type' => "select",
+               'name' => 'department_id', // the column that contains the ID of that connected entity;
+               'entity' => 'department', // the method that defines the relationship in your Model
+               'attribute' => "description", // foreign key attribute that is shown to user
+               'model' => "App\Models\Department", // foreign key model
+            ]
+        );
+
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

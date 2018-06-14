@@ -44,6 +44,10 @@ class Department extends Model
         return $this->hasOne('App\Models\Visitor');
     }
 
+   public function employee() {
+        return $this->hasOne('App\Models\Employee');
+   }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
