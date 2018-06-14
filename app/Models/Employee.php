@@ -54,19 +54,19 @@ class Employee extends Model
     */
 
     public function setFirstnameAttribute($value){
-        return strtoupper($value);
+        $this->attributes['firstname'] = strtoupper($value);
     }
 
     public function setMiddlenameAttribute($value){
-        return strtoupper($value);
+        $this->attributes['middlename'] = strtoupper($value);
     }
 
     public function setLastnameAttribute($value){
-        return strtoupper($value);
+        $this->attributes['lastname'] = strtoupper($value);
     }
 
     public function setExtnameAttribute($value){
-        return strtoupper($value);
+        $this->attributes['extname'] = strtoupper($value);
     }
 
 }
