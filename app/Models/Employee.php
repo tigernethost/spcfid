@@ -19,7 +19,7 @@ class Employee extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ['member_id','firstname','middlename','lastname','extname','department_id','status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -52,4 +52,21 @@ class Employee extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function setFirstnameAttribute($value){
+        return strtoupper($value);
+    }
+
+    public function setMiddlenameAttribute($value){
+        return strtoupper($value);
+    }
+
+    public function setLastnameAttribute($value){
+        return strtoupper($value);
+    }
+
+    public function setExtnameAttribute($value){
+        return strtoupper($value);
+    }
+
 }
