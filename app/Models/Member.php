@@ -19,7 +19,7 @@ class Member extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['rfid','student_id','firstname','middlename','lastname','department_id','status','image','signature'];
+    protected $fillable = ['rfid','member_id','status','is_visitor','is_alumni','is_parttime'];
     // protected $hidden = [];
     // public $appends =$value ['image'];
     // protected $dates = [];

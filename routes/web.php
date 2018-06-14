@@ -75,6 +75,8 @@ Route::group([
     CRUD::resource('timelog', 'TimelogCrudController');
     CRUD::resource('counter_log', 'Counter_logCrudController');
     CRUD::resource('visitor', 'VisitorCrudController');
+    CRUD::resource('employee', 'EmployeeCrudController');
+    CRUD::resource('student', 'StudentCrudController');
 });
 	Route::post('visitor', 'VisitorController@storeVisitor');
 

@@ -1,6 +1,5 @@
 import evdev, asyncio, redis, pickle, requests, time
 import numpy as np
-#import threading
 import json
 import RPi.GPIO as GPIO
 from evdev import InputDevice, categorize, ecodes
@@ -27,7 +26,6 @@ serverIP = "200.10.10.254"
 RFIDname = "Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter"
 #Global nCntEntrance
 #Global nCntExit
-
 nCntEntrance = 0
 nCntExit = 0
 turnstile_no = 1
