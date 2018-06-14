@@ -97,18 +97,9 @@ class MemberCrudController extends CrudController
         // $this->crud->with(); // eager load relationships
         // $this->crud->orderBy();
         // $this->crud->groupBy();
-        // $this->crud->limit();
+        $this->crud->limit(50);
 
-        $this->crud->addField(
-                [  // Select
-                   'label' => "Department",
-                   'type' => 'select',
-                   'name' => 'department_id', // the db column for the foreign key
-                   'entity' => 'department', // the method that defines the relationship in your Model
-                   'attribute' => 'description', // foreign key attribute that is shown to user
-                   'model' => "App\Models\Department" // foreign key model
-                ]
-            );
+       
 
         $this->crud->addField(
                 [ 

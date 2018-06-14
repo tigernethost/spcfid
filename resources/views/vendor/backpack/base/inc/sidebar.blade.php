@@ -23,8 +23,8 @@
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/department') }}"><i class="fas fa-cog"></i> <span>Departments</span></a></li>
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/member') }}"><i class="fas fa-cog"></i> <span>RFID Register</span></a></li>
 
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/member') }}"><i class="fas fa-cog"></i> <span>Students</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/member') }}"><i class="fas fa-cog"></i> <span>Employee</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/student') }}"><i class="fas fa-cog"></i> <span>Students</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/employee') }}"><i class="fas fa-cog"></i> <span>Employee</span></a></li>
           
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/timelog') }}"><i class="fas fa-cog"></i> <span>Time Logs</span></a></li>
           
