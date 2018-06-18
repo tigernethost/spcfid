@@ -15,9 +15,9 @@ class AddIsVisitorColumn extends Migration
     {
         //
         Schema::table('members', function (Blueprint $table) {
-            $table->boolean('is_visitor')->nullable()->after('status');
-            $table->boolean('is_alumni')->nullable()->after('status');
-            $table->boolean('is_parttime')->nullable()->after('status');
+            $table->boolean('is_visitor')->default(0)->after('status');
+            $table->boolean('is_alumni')->default(0)->after('status');
+            $table->boolean('is_parttime')->default(0)->after('status');
         });
     }
 

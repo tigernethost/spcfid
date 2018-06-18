@@ -99,7 +99,15 @@ class MemberCrudController extends CrudController
         // $this->crud->groupBy();
         $this->crud->limit(50);
 
-       
+       $this->crud->addField(
+        [
+            // Custom Field
+            'name' => 'nonData',
+            'label' => '',
+            'type' => 'rfid_auto_suggestions',
+            'placeholder' => 'Your adress here',
+            'another_attribute' => false
+        ]);
 
         $this->crud->addField(
                 [ 
@@ -113,16 +121,40 @@ class MemberCrudController extends CrudController
             );
 
         $this->crud->addField(
-            [   // Upload
-                'name' => 'image',
-                'label' => 'Image',
-                'type' => 'image',
-                'upload' => true,
-                'disk' => 'uploads',
-                'crop' => true, // set to true to allow cropping, false to disable
-                'aspect_ratio' => 1 // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
+            [
+                'name' => 'is_parttime',
+                'label' => 'Part Time',
+                'type' => 'checkbox',
             ]
-            );
+        );
+
+        $this->crud->addField(
+            [
+                'name' => 'is_alumni',
+                'label' => 'Alumni',
+                'type' => 'checkbox',
+            ]
+        );
+
+        $this->crud->addField(
+            [
+                'name' => 'is_visitor',
+                'label' => 'Visitor',
+                'type' => 'checkbox',
+            ]
+        );
+
+        // $this->crud->addField(
+        //     [   // Upload
+        //         'name' => 'image',
+        //         'label' => 'Image',
+        //         'type' => 'image',
+        //         'upload' => true,
+        //         'disk' => 'uploads',
+        //         'crop' => true, // set to true to allow cropping, false to disable
+        //         'aspect_ratio' => 1 // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
+        //     ]
+        //     );
         // $this->crud->addField(
         // [ // image
         //     'label' => "Signature",
@@ -143,7 +175,7 @@ class MemberCrudController extends CrudController
         $redirect_location = parent::storeCrud($request);
 
 
-        Redis::set(ltrim($request->rfid, '0'),'is_out');
+        // Redis::set(ltrim($request->rfid, '0'),'is_out');
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
@@ -153,7 +185,7 @@ class MemberCrudController extends CrudController
     {
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
-        Redis::set(ltrim($request->rfid, '0'),'is_out');
+        // Redis::set(ltrim($request->rfid, '0'),'is_out');
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;

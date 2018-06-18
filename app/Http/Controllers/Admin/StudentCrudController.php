@@ -99,7 +99,7 @@ class StudentCrudController extends CrudController
         // $this->crud->limit();
     }
 
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request = null)
     {
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);

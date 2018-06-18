@@ -19,6 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
+            $table->string('fullName')->nullable();
             $table->integer('department_id');
             $table->boolean('status')->nullable();
             $table->text('image')->nullable();

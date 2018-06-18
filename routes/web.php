@@ -18,6 +18,11 @@ Route::post('/', 'WelcomeController@index');
 Route::get('/updateNow', 'WelcomeController@updateDB');
 
 
+// API WEB SERVICE
+Route::get('/api/getallusers', 'APIController@getAllUsers');
+
+
+
 Route::get('chat', function(){
 	return view('chat');
 });
