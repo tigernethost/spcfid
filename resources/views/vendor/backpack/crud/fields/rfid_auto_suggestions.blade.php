@@ -43,7 +43,7 @@
 
 
 				var options = {
-						url: "http://127.0.0.1:8000/api/getallusers",
+						url: window.location.protocol + '//' + window.location.host + "/admin/api/getallusers",
 
 						getValue: function(element) {
 							return element.member_id + ' ' + element.firstname + ' ' + element.middlename + ' ' + element.lastname;

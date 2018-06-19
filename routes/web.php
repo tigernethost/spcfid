@@ -19,7 +19,6 @@ Route::get('/updateNow', 'WelcomeController@updateDB');
 
 
 // API WEB SERVICE
-Route::get('/api/getallusers', 'APIController@getAllUsers');
 
 
 
@@ -65,16 +64,28 @@ Route::get('counter-event', function(){
 Route::get('jsonreturn', "MemberCrudController@jsonreturn");
 // Route::post('/', 'WelcomeController@validateRfid');
 
+	Route::get('admin/dashboard', 'DashboardController@index');
 
 Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['admin'],
     'namespace' => 'Admin'
 ], function() {
+
+
+	// API WEB SERVICE
+	Route::get('/api/getallusers', 'APIController@getAllUsers');
+
+
+	// SSH
+
+	Route::get('turnstile/ping', 'TurnstileCrudController@ping');
+
 	Route::get('ajax-department-options', 'TimelogCrudController@departmentOptions');
     // your CRUD resources and other admin routes here
     CRUD::resource('member', 'MemberCrudController');
     CRUD::resource('department', 'DepartmentCrudController');
+    CRUD::resource('turnstile', 'TurnstileCrudController');
     CRUD::resource('counter', 'CounterCrudController');
     
     CRUD::resource('timelog', 'TimelogCrudController');
@@ -82,6 +93,7 @@ Route::group([
     CRUD::resource('visitor', 'VisitorCrudController');
     CRUD::resource('employee', 'EmployeeCrudController');
     CRUD::resource('student', 'StudentCrudController');
+
 });
 	Route::post('visitor', 'VisitorController@storeVisitor');
 

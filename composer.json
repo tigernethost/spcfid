@@ -16,7 +16,8 @@
         "laravel/tinker": "~1.0",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "~3.0",
-        "twbs/bootstrap": "4.0.0-beta"
+        "twbs/bootstrap": "4.0.0-beta",
+        "laravelcollective/remote": "~5.0"
     },
     "require-dev": {
         "backpack/generators": "^1.1",

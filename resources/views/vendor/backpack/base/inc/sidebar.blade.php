@@ -21,6 +21,7 @@
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fas fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/department') }}"><i class="fas fa-cog"></i> <span>Departments</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/turnstile') }}"><i class="fas fa-cog"></i> <span>Turnstile Management</span></a></li>
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/member') }}"><i class="fas fa-cog"></i> <span>RFID Register</span></a></li>
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/student') }}"><i class="fas fa-cog"></i> <span>Students</span></a></li>
