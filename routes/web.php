@@ -78,8 +78,8 @@ Route::group([
 
 
 	// SSH
-
 	Route::get('turnstile/ping', 'TurnstileCrudController@ping');
+	Route::get('turnstile/reboot', 'TurnstileCrudController@reboot');
 
 	Route::get('ajax-department-options', 'TimelogCrudController@departmentOptions');
     // your CRUD resources and other admin routes here

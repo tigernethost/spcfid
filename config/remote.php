@@ -27,7 +27,7 @@ return [
     */
 
     'connections' => [
-        'turnstile' => [
+        'turnstile1' => [
             'host'      => '200.10.10.111',
             'username'  => 'pi',
             'password'  => '$ecurit1',
@@ -37,6 +37,56 @@ return [
             'agent'     => '',
             'timeout'   => 10,
         ],
+        'turnstile2' => [
+            'host'      => '200.10.10.112',
+            'username'  => 'pi',
+            'password'  => '$ecurit1',
+            'key'       => '',
+            'keytext'   => '',
+            'keyphrase' => '',
+            'agent'     => '',
+            'timeout'   => 10,
+        ],
+        'turnstile3' => [
+            'host'      => '200.10.10.113',
+            'username'  => 'pi',
+            'password'  => '$ecurit1',
+            'key'       => '',
+            'keytext'   => '',
+            'keyphrase' => '',
+            'agent'     => '',
+            'timeout'   => 10,
+        ],
+        'turnstile4' => [
+            'host'      => '200.10.10.114',
+            'username'  => 'pi',
+            'password'  => '$ecurit1',
+            'key'       => '',
+            'keytext'   => '',
+            'keyphrase' => '',
+            'agent'     => '',
+            'timeout'   => 10,
+        ],
+        'turnstile5' => [
+            'host'      => '200.10.10.115',
+            'username'  => 'pi',
+            'password'  => '$ecurit1',
+            'key'       => '',
+            'keytext'   => '',
+            'keyphrase' => '',
+            'agent'     => '',
+            'timeout'   => 10,
+        ],
+        'turnstile6' => [
+            'host'      => '200.10.10.116',
+            'username'  => 'pi',
+            'password'  => '$ecurit1',
+            'key'       => '',
+            'keytext'   => '',
+            'keyphrase' => '',
+            'agent'     => '',
+            'timeout'   => 10,
+        ]
     ],
 
     /*

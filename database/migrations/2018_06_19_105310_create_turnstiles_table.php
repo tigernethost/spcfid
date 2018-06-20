@@ -14,10 +14,11 @@ class CreateTurnstilesTable extends Migration
     {
         Schema::create('turnstiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
-            $table->ipAddress('ipaddress');
+            $table->string('name');
             $table->string('username');
             $table->string('password');
+            $table->string('description');
+            $table->ipAddress('ipaddress');
             $table->timestamps();
         });
     }

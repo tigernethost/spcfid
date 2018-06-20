@@ -19,7 +19,7 @@ class TurnsTile extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['description','ipaddress', 'username', 'password'];
+    protected $fillable = ['name', 'username', 'password', 'description','ipaddress',];
     // protected $hidden = [];
     // protected $dates = [];
 
